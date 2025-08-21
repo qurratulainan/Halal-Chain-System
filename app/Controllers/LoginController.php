@@ -20,60 +20,50 @@ class LoginController extends BaseController
 
     public function login()
     {
-        $data['roles'] = $this->LoginModel->getRoles(); // Fetch role list
-        return view('LoginPage',  $data);
+        $data['roles'] = $this->LoginModel->getRoles(); // Fetch roles for dropdown
+        return view('LoginPage', $data);
     }
 
     public function loginSubmit()
     {
-        $email = $this->request->getPost('email');
+        $email    = $this->request->getPost('email');
         $password = $this->request->getPost('password');
-        $role = $this->request->getPost('role_id');
-        
+        $role_id  = $this->request->getPost('role_id');
 
         // Fetch user
-        $user = $this->db->table('tbl_login')
+        $user = $this->db->table('tbl_register')
             ->where('email', $email)
+            ->where('role_id', $role_id) // also check role
             ->get()
             ->getRow();
 
-        if ($user && password_verify($password, $user->password)) {
-            if (password_verify($password, $user['password'])) {
-                // Fetch org_id from tbl_register using the same email
-                $registerData = $this->db->table('tbl_register')
-                    ->where('email', $email)
-                    ->get()
-                    ->getRow();
+        if (!$user) {
+            return redirect()->back()->with('error', 'User not found for this role.');
+        }
 
-                if ($registerData) {
-                    session()->set([
-                        'user_id' => $user->user_id,
-                        'email'   => $user->email,
-                        'password' => $user->password,
-                        'org_id'  => $registerData->org_id, // ✅ store org_id in session
-                        'isLoggedIn' => true
-                    ]);
+        if (!password_verify($password, $user->password)) {
+            return redirect()->back()->with('error', 'Invalid password.');
+        }
 
-                    if ($registerData->role === 'admin') {
-                        return redirect()->to('AdminDashboard');
-                    } elseif (in_array($registerData->role, ['slaughterhouse', 'supplier', 'manufacturer'])) {
-                        return redirect()->to('Dashboard');
-                    } else {
-                        return redirect()->to('/')->with('error', 'Invalid role');
-                    }
-                }
+        // Save session
+        $this->session->set([
+            'user_id'   => $user->user_id,
+            'email'     => $user->email,
+            'org_id'    => $user->organisation_id,
+            'role_id'   => $user->role_id,
+            'isLoggedIn' => true
+        ]);
 
-                return redirect()->to('DashboardPage');
-            } else {
-                // Wrong password — increase failed attempts
-                $this->LoginModel->update($user['login_id'], [
-                    'failed_attempts' => $user['failed_attempts'] + 1
-                ]);
-
-                return redirect()->back()->with('error', 'Invalid password.');
-            }
-        } else {
-            return redirect()->back()->with('error', 'Email not found.');
+        // Redirect based on role_id
+        switch ($user->role_id) {
+            case 1: // admin
+                return redirect()->to('/AdminDashboard');
+            case 2: // slaughterhouse
+            case 3: // supplier
+            case 4: // manufacturer
+                return redirect()->to('/Dashboard');
+            default:
+                return redirect()->to('/')->with('error', 'Invalid role.');
         }
     }
 

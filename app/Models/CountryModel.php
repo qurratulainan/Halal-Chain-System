@@ -8,6 +8,7 @@ class CountryModel extends Model
 {
     protected $table = 'tbl_origin_country_lkp';
     protected $primaryKey = 'country_id';
+    
     protected $allowedFields = [
         'country_name',
         'data_status',

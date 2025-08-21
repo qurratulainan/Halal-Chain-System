@@ -132,6 +132,7 @@ class ProductController extends BaseController
             'product_name'      => $this->request->getPost('product_name'),
             'product_code'      => $this->request->getPost('product_code'),
             'product_category'  => $this->request->getPost('product_category'),
+            'product_price'     => $this->request->getPost('product_price'),
             // 'date_of_processing'=> $this->request->getPost('date_of_processing'),
             'org_id'            => session()->get('org_id'),
             'data_status'       => 1,
@@ -170,6 +171,7 @@ class ProductController extends BaseController
             'product_name' => $this->request->getPost('product_name'),
             'product_code' => $this->request->getPost('product_code'),
             'product_category' => $this->request->getPost('product_category'),
+            'product_price' => $this->request->getPost('product_price'),
             // 'date_of_processing' => $this->request->getPost('date_of_processing')
         ]);
 
@@ -185,7 +187,7 @@ class ProductController extends BaseController
         //     ->findAll();
 
         $productModel = new \App\Models\ProductsModel();
-        $data['products'] = $productModel->findAll(); // get all products
+        $data['tbl_products'] = $productModel->findAll(); // get all products
 
         return view('ProductHistory', $data);
     }

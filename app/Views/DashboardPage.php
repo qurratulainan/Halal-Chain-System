@@ -26,7 +26,7 @@
                         </a>
                     </div>
                     <div class="col-md-5">
-                        <a href="<?= site_url('order') ?>" class="text-decoration-none">
+                        <a href="<?= site_url('orders/create') ?>" class="text-decoration-none">
                             <div class="card shadow-lg mb-4">
                                 <div class="card-body text-center">
                                     <h4 class="card-title">Order</h4>
