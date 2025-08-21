@@ -27,6 +27,7 @@
                             <td><?= esc($p['product_name']) ?></td>
                             <td><?= esc($p['product_code']) ?></td>
                             <td><?= esc($p['product_category']) ?></td>
+                            <td><?= esc($p['product_price']) ?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>

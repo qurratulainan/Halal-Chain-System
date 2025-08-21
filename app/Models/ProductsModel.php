@@ -18,6 +18,7 @@ class ProductsModel extends Model
         'product_name',
         'product_code',
         'product_category',
+        'product_price',
         'date_of_processing',
         'data_status',
         'data_delete',

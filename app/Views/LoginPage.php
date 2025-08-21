@@ -25,7 +25,7 @@
                             </div>
                         <?php endif; ?>
 
-                        <form action="<?= site_url('dashboard') ?>" method="post">
+                        <form method="post" action="<?= site_url('dashboard') ?>">
                             <?= csrf_field() ?>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
