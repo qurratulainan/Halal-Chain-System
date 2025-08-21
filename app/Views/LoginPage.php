@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>
+
 <head>
     <meta charset="UTF-8">
     <title>Login Page</title>
@@ -25,7 +28,7 @@
                             </div>
                         <?php endif; ?>
 
-                        <form method="post" action="<?= site_url('dashboard') ?>">
+                        <form action="<?= site_url('dashboard') ?>" method="post">
                             <?= csrf_field() ?>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>

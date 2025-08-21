@@ -15,7 +15,7 @@
                 <h4 class="mb-0">Delivery Management Page</h4>
             </div>
             <div class="card-body">
-                <form action="<?= base_url('orders/create/store') ?>" method="post">
+                <form action="<?= base_url('orders/store') ?>" method="post">
                     <?= csrf_field() ?>
 
                     <div class="mb-3">

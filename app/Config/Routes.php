@@ -8,7 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'LoginController::login');
 
 $routes->get('login', 'LoginController::login'); // shows login form
-$routes->post('loginsubmit', 'LoginController::loginSubmit'); // handles login POST
+$routes->post('loginSubmit', 'LoginController::loginSubmit'); // handles login POST
 
 $routes->get('logout', 'LoginController::logout');
 
@@ -33,7 +33,7 @@ $routes->get('product/history', 'ProductController::history');
 $routes->post('product/history', 'ProductController::history');
 
 $routes->get('orders/create', 'OrdersController::orders');
-$routes->post('orders/create/store', 'OrdersController::store');
+$routes->post('orders/store', 'OrdersController::store');
 
 $routes->get('orders/history', 'OrdersController::history');
 

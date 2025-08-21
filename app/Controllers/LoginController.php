@@ -2,25 +2,25 @@
 
 namespace App\Controllers;
 
-use App\Models\RegisterModels;
+use App\Models\LoginModels;
 
 class LoginController extends BaseController
 {
     protected $session;
-    protected $RegisterModel;
+    protected $LoginModel;
     protected $db;
 
     public function __construct()
     {
         helper(['form', 'url']);
         $this->session = session();
-        $this->RegisterModel = new RegisterModels();
+        $this->LoginModel = new LoginModels();
         $this->db = \Config\Database::connect();
     }
 
     public function login()
     {
-        $data['roles'] = $this->RegisterModel->getRoles(); // Fetch roles for dropdown
+        $data['roles'] = $this->LoginModel->getRoles(); // Fetch roles for dropdown
         return view('LoginPage', $data);
     }
 

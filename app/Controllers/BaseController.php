@@ -8,6 +8,7 @@ use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use App\Libraries\Template;
 
 /**
  * Class BaseController
@@ -35,7 +36,8 @@ abstract class BaseController extends Controller
      *
      * @var list<string>
      */
-    protected $helpers = [];
+    protected $helpers = ['utility_helper', 'form_helper'];
+    protected $templates;
 
     /**
      * Be sure to declare properties for any property fetch you initialized.
@@ -50,9 +52,8 @@ abstract class BaseController extends Controller
     {
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
-
         // Preload any models, libraries, etc, here.
-
+        $this->templates = new Template();
         // E.g.: $this->session = service('session');
     }
 }
