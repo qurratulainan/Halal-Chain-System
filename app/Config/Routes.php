@@ -32,8 +32,10 @@ $routes->post('product/store', 'ProductController::store');
 $routes->get('product/history', 'ProductController::history');
 $routes->post('product/history', 'ProductController::history');
 
-$routes->get('orders/create', 'OrdersController::orders');
-$routes->post('orders/store', 'OrdersController::store');
+// $routes->get('orders', 'OrdersController::orders');
+$routes->get('orders/create', 'OrdersController::create');   // handle post
+$routes->post('orders/store', 'OrdersController::store');   // handle post
 
-$routes->get('orders/history', 'OrdersController::history');
+// $routes->get('orders/history', 'OrdersController::history');
+
 
