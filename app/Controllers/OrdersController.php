@@ -17,10 +17,10 @@ class OrdersController extends BaseController
         $this->productsModel = new ProductsModel();
     }
 
-    public function orders()
+    public function create()
     {
         $data['tbl_products'] = $this->productsModel->findAll();
-        return view('orders/create', $data);
+        return view('OrderPage', $data);
     }
 
     // Handle form submission
@@ -58,7 +58,7 @@ class OrdersController extends BaseController
             'product_id'   => $this->request->getPost('product_id'),
         ];
 
-        // return redirect()->to('/orders/create')->with('success', 'Order placed successfully!');
+        return redirect()->to('/orders/create')->with('success', 'Delivery Have Been Scheduled!');
     }
 
     // Show history of orders for logged in org
@@ -69,13 +69,5 @@ class OrdersController extends BaseController
 
         return view('OrderHistory', $data);
     }
-
-    /* how to make these not compulsory to fill in? 
-            'origin_port_shipment', // port mana yg dia depart
-            'depart_date_from_port',
-            'port_of_shipment', // port mana yg dia stop or pergi
-            'port_arrival_date', // date sampai kat shipment port 
-            'port_leave_date', // date kena gerak dari port tu
-    */
 
 }
