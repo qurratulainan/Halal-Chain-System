@@ -73,6 +73,11 @@
                                 </select>
                             </div>
 
+                            <div class="mb-3">
+                                <label for="product_price" class="form-label">Product Price</label>
+                                <input type="text" name="product_price" id="product_price" class="form-control" required>
+                            </div>
+
                             <!-- <div class="mb-3">
                                 <label for="halal_cert_number" class="form-label">Halal Cert Number</label>
                                 <input type="text" name="halal_cert_number" id="halal_cert_number" class="form-control" required>
