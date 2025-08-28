@@ -18,6 +18,11 @@ class LoginController extends BaseController
         $this->db = \Config\Database::connect();
     }
 
+    public function landingLogin() {
+        $this->templates->login_page();
+    }
+
+
     public function login()
     {
         $data['roles'] = $this->LoginModel->getRoles(); // Fetch roles for dropdown

@@ -5,7 +5,7 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'LoginController::login');
+$routes->get('/', 'LoginController::landingLogin');
 
 $routes->get('login', 'LoginController::login'); // shows login form
 $routes->post('loginSubmit', 'LoginController::loginSubmit'); // handles login POST
