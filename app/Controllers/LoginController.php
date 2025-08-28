@@ -18,6 +18,11 @@ class LoginController extends BaseController
         $this->db = \Config\Database::connect();
     }
 
+    public function landingLogin() {
+        $this->templates->login_page();
+    }
+
+
     public function login()
     {
         $data['roles'] = $this->LoginModel->getRoles(); // Fetch role list
@@ -30,7 +35,6 @@ class LoginController extends BaseController
         $password = $this->request->getPost('password');
         $role = $this->request->getPost('role_id');
         
-
         // Fetch user
         $user = $this->db->table('tbl_login')
             ->where('email', $email)
@@ -73,7 +77,7 @@ class LoginController extends BaseController
                 return redirect()->back()->with('error', 'Invalid password.');
             }
         } else {
-            return redirect()->back()->with('error', 'Email not found.');
+            return redirect()->back()->with('error', 'Email or Password not match.');
         }
     }
 
