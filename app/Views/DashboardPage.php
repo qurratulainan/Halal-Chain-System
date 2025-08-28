@@ -1,11 +1,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/style.css') ?>">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-light">
+<body>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -29,9 +29,9 @@
                         <a href="<?= site_url('orders/create') ?>" class="text-decoration-none">
                             <div class="card shadow-lg mb-4">
                                 <div class="card-body text-center">
-                                    <h4 class="card-title">Order</h4>
-                                    <p class="card-text text-muted">Place a new order or view your orders.</p>
-                                    <span class="btn btn-primary">Go to Order</span>
+                                    <h4 class="card-title">Delivery Management</h4>
+                                    <p class="card-text text-muted">Arrange and manage deliveries.</p>
+                                    <span class="btn btn-primary">Go to Delivery</span>
                                 </div>
                             </div>
                         </a>
@@ -45,4 +45,6 @@
             </div>
         </div>
     </div>
+
+
 </body>

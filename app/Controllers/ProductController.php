@@ -21,7 +21,6 @@ class ProductController extends BaseController
     {
         
         $data['countries'] = $this->countryModel->getCountries();
-
         return view('ProductPage', $data);
     }
 

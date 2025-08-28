@@ -1,13 +1,13 @@
 <head>
     <meta charset="UTF-8">
-    <title>Product Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Delivery Management Page</title>
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/style.css') ?>">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-light">
-
-    <a href="<?= site_url('dashboard') ?>" class="btn btn-outline-secondary">⬅ Back</a>
+<body>
+    <!-- <div class="order-container"> -->
+    <a href="<?= site_url('dashboard') ?>" class="back-btn">⬅ Back</a>
 
     <div class="container mt-5">
         <div class="row justify-content-center">
