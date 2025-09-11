@@ -1,7 +1,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/style.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/style-cust-new.css') ?>">
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
 

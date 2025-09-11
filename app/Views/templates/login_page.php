@@ -3,7 +3,7 @@
 
 <head>
     <title>Halal Chain Authenticate</title>
-    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/style.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/style-cust-new.css') ?>">
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
 
@@ -17,7 +17,7 @@
                     <?= session()->getFlashdata('success') ?>
                 </div>
             <?php endif; ?>
-            <form action="<?= base_url('loginsubmit') ?>" method="post">
+            <form action="<?= site_url('login/submit') ?>" method="post">
                 <label for="chk" aria-hidden="true">Login</label>
                 <input type="email" name="email" placeholder="Email" class="<?= session()->getFlashdata('error') ? 'error-input' : '' ?>" required="">
                 <input type="password" name="pswd" placeholder="Password" class="<?= session()->getFlashdata('error') ? 'error-input' : '' ?>" required="">
@@ -30,7 +30,7 @@
         </div>
 
         <div class="login">
-            <form>
+            <form id="resetPasswordForm" action="<?= base_url('loginSubmit') ?>" method="post">
                 <label for="chk" aria-hidden="true">Sign up</label>
                 <input type="text" name="txt" placeholder="User name" required="">
                 <input type="email" name="email" placeholder="Email" required="">
